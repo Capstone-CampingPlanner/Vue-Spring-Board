@@ -8,6 +8,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 
 @RestController
 @AllArgsConstructor
@@ -33,5 +36,13 @@ public class ApiController {
         return writer;
     }
 
-
+    @GetMapping("list")
+    public List<Writer> writerMyList() {
+        List<Writer> writerList = writerRepository.findAll();
+        System.out.println(writerList);
+        return writerList;
+    }
 }
+
+
+
