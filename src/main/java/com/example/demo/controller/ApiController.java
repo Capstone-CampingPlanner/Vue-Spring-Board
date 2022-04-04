@@ -42,6 +42,14 @@ public class ApiController {
         System.out.println(writerList);
         return writerList;
     }
+
+    @GetMapping("myList/{writer_code}")
+    public Optional<Writer> myList(@PathVariable("writer_code") String writer_code) {
+        System.out.println("Vue에서 받은 데이터는" + writer_code + " 입니다.");
+
+        Optional<Writer> myMyList = writerRepository.findById(writer_code);
+        return myMyList;
+    }
 }
 
 

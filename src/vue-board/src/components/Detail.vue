@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>{{data.writer}}</div>
+    <div>{{data.writer_code}}</div>
     <div>{{data.title}}</div>
     <div>{{data.content}}</div>
     <button @click="updateData">수정</button>

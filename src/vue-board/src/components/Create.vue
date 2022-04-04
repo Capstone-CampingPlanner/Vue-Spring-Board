@@ -2,23 +2,23 @@
   <div>
     <h1>게시글 작성</h1>
     <button @click="list" style="float: left;">목록</button>
-<!--    <button @click=" "  style="float: left;">이전글</button>-->
-<!--    <button @click=" " style="float: left;">다음글</button>-->
+    <!--    <button @click=" "  style="float: left;">이전글</button>-->
+    <!--    <button @click=" " style="float: left;">다음글</button>-->
     <form>
       <table class="tbAdd">
 
-      <tr>
-        <th>제목</th>
-        <td><input type="text" v-model="title" ref="subject" placeholder="제목"/></td>
-      </tr>
-      <tr>
-        <th>글쓴이</th>
-        <td><input type="text" v-model="writer_code" placeholder="글쓴이"/></td>
-      </tr>
-      <tr>
-        <th>내용</th>
-        <td><textarea v-model="content" placeholder="내용을 입력하세요."/></td>
-      </tr>
+        <tr>
+          <th>제목</th>
+          <td><input type="text" v-model="title" ref="subject" placeholder="제목"/></td>
+        </tr>
+        <tr>
+          <th>글쓴이</th>
+          <td><input type="text" v-model="writer_code" placeholder="글쓴이"/></td>
+        </tr>
+        <tr>
+          <th>내용</th>
+          <td><textarea v-model="content" placeholder="내용을 입력하세요."/></td>
+        </tr>
 
       </table>
 
@@ -73,9 +73,9 @@ export default {
         path: '/Read'
       })
 
-      if(!this.subject) {       //제목 없다면 값 입력하라고 알려줌
+      if(!this.title) {       //제목 없다면 값 입력하라고 알려줌
         alert("제목을 입력해 주세요");
-        this.$refs.subject.focus();     //방식으로 선택자를 찾는다
+        this.$refs.title.focus();     //방식으로 선택자를 찾는다
         return;
       }
     },

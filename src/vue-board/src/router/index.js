@@ -6,6 +6,7 @@ import Write from '@/components/board/Write';  //게시판 리스트 컴포넌�
 import Detail from '@/components/Detail';
 import Create from '@/components/Create';
 import Read from "@/components/Read";
+import View from "@/components/View";
 
 
 
@@ -24,6 +25,7 @@ const routes = [
     // which is lazy-loaded when the route is visited.
   },
   {
+    //board/write.List 지울거
     path:'/board/write',
     name:Write,
     component: Write
@@ -47,7 +49,21 @@ const routes = [
     path: '/create',
     name: 'Create',
     component: Create
-  }
+  },
+
+  //상세페이지 추가
+  {
+    path:'/view/:writer_code',
+    name:View,
+    component:View
+  },
+  {
+    path:'/view/:writerCode', //상세페이지 추가
+    name:"Params",
+    component:View,
+    props: true
+  },
+
 
 ]
 
