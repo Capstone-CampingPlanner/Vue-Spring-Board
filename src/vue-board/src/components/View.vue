@@ -98,24 +98,7 @@ export default {
         })
 
     },
-    write() {
-      const data = {
-        writer_code: this.writer_code,
-        title: this.title,
-        content: this.content
-      }
-      console.log(data);
-      axios.post('http://localhost:8090/api/signup', data)
-          .then((res) => {
-            console.log("성공" + res.data)
-          })
-          .catch((ex) => {
-            console.log("fail", ex)
-          })
-      this.$router.push({
-        path: '/Read'
-      })
-    },
+
     fnList() {
       delete this.body.num;
       this.$router.push({path: './read', query: this.body});
