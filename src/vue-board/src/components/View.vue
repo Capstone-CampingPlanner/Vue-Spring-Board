@@ -20,8 +20,6 @@
             <th>내용</th>
             <td>{{List.content}}</td>
           </tr>
-<!--          <button @click="updateData">수정</button>-->
-<!--          <button @click="deleteData(index)">삭제</button>-->
 
         </table>
       </form>
@@ -30,58 +28,28 @@
     <div class="btnWrap">
       <button @click="list" class="btn" style="float: left;">목록</button>
 
-      <button @click="update" class="btn" style="float: left;">수정</button>
-      <button @click="listd" class="btn" style="float: left;">삭제</button>
+      <button @click="updateData" class="btn" style="float: left;">수정</button>
+      <button @click="deleteData" class="btn" style="float: left;">삭제</button>
+
 <!--      <button type="submit" @click="index !== undefined ? update() : write()" class="btnAdd btn">{{index !== undefined ? '수정' : '작성'}}</button>-->
   </div>
 </template>
 
 <script>
-import data from "@/data";
 import axios from "axios"
-// import Read from "@/components/Read";
 export default {
   name: 'View',
   data() {
-    const index = this.$route.params.contentId;
     return {
-      index: index,
-      body: this.$route.query,
-      // writer_code: '',
-      // title: '',
-      // content: '',
+      writer_code: '',
+      title: '',
+      content: '',
       List: [],
     }
   },
   created() {
     this.DataList();
   },
-  props: {
-    writer_code: {
-      type: String,
-      default: "",
-    },
-    title: {
-      type: String,
-      default: ""
-    },
-    content: {
-      type: String,
-      default: ""
-    }
-  },
-
-  // mounted() {
-  //   Read.getArticle(this.$route.params.id)
-  //   .then((response) => {
-  //     this.article = response.data;
-  //   })
-  //   .catch((e) => {
-  //     console.log(e);
-  //   });
-  //   // this.article = this.$route.params.id;
-  // },
-
 
   methods: {
     DataList() {
@@ -99,32 +67,11 @@ export default {
 
     },
 
-    fnList() {
-      delete this.body.num;
-      this.$router.push({path: './read', query: this.body});
-    },
-    update() {
-      data[this.index].writer = this.writer
-      data[this.index].title = this.title
-      data[this.index].content = this.content
-      this.$router.push({
-        path: '/read'
-      })
-    },
-
     deleteData() {
-      data.splice(this.index, 1)
-      this.$router.push({
-        path: "/"
-      })
+
     },
     updateData() {
-      this.$router.push({
-        name: 'Create',
-        params: {
-          contentId: this.index
-        }
-      })
+
     },
 
     list() {
@@ -132,7 +79,7 @@ export default {
         path: '/read'
       })
     }
-    ,
+
   }
 }
 
@@ -147,4 +94,8 @@ export default {
 .btnWrap a{margin:0 10px;}
 .btnAdd {background:#43b984}
 .btnDelete{background:#f00;}
+
+.btn {
+  margin: 10px;
+}
 </style>
