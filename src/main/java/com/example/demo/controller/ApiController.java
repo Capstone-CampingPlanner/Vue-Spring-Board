@@ -44,6 +44,24 @@ public class ApiController {
         Optional<Writer> myMyList = writerRepository.findById(writer_code);
         return myMyList;
     }
+
+    @DeleteMapping("deleteList/{writer_code}")
+    public String deleteList(@PathVariable("writer_code") String writer_code) {
+        System.out.println("삭제할 게시글 번호는 : " +writer_code);
+        Optional<Writer> writer = writerRepository.findById(writer_code);
+        writerRepository.deleteById(writer_code);
+        return "게시글이 삭제되었습니다.";
+
+
+    }
+
+    @PutMapping("update/{writer_code}")
+    public String updateList(@RequestBody Writer writer, @PathVariable("writer_code") String writer_code) {
+        writerRepository.findById(writer_code);
+        return writer_code;
+    }
+
+
 }
 
 

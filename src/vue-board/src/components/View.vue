@@ -14,11 +14,11 @@
           </tr>
           <tr>
             <th>제목</th>
-            <td>{{List.title}}</td>
+            <td>{{ List.title }}</td>
           </tr>
           <tr>
             <th>내용</th>
-            <td>{{List.content}}</td>
+            <td>{{ List.content }}</td>
           </tr>
 
         </table>
@@ -28,7 +28,7 @@
     <div class="btnWrap">
       <button @click="list" class="btn" style="float: left;">목록</button>
 
-      <button @click="updateData" class="btn" style="float: left;">수정</button>
+      <button @click="updateData(List)" class="btn" style="float: left;">수정</button>
       <button @click="deleteData" class="btn" style="float: left;">삭제</button>
 
 <!--      <button type="submit" @click="index !== undefined ? update() : write()" class="btnAdd btn">{{index !== undefined ? '수정' : '작성'}}</button>-->
@@ -37,6 +37,7 @@
 
 <script>
 import axios from "axios"
+import Read from "@/components/Read";
 export default {
   name: 'View',
   data() {
@@ -56,21 +57,43 @@ export default {
       this.id = this.$route.params.writer_code;
       console.log(this.id);
       axios.get('http://localhost:8090/api/myList/' + this.id)
-        .then((res) => {
-          console.log("내가 받은 데이터는", res.data)
-          this.List = res.data;
-          console.log(this.List.writer_code)
-        })
-        .catch(error =>{
-          console.log("에러" + error)
-        })
+          .then((res) => {
+            console.log("내가 받은 데이터는", res.data)
+            this.List = res.data;
+            console.log(this.List.writer_code)
+          })
+          .catch(error => {
+            console.log("에러" + error)
+          })
 
     },
 
     deleteData() {
-      
+      if (confirm("삭제하시겠습니까?")) {
+        axios.delete('http://localhost:8090/api/deleteList/'+ this.id)
+            .then((res) => {
+              console.log("삭제되었습니다.", res)
+              alert("게시글이 삭제되었습니다.")
+              this.$router.push({
+                name: Read
+              })
+            })
+            .catch((err) => {
+              console.log(err);
+            })
+      }
+
     },
-    updateData() {
+    updateData(List) {
+        console.log(List.writer_code, List.title, List.content);
+        this.$router.push({
+          path: `/update/${List.writer_code}`,
+          query: {
+            writer_code: List.writer_code,
+            title: List.title,
+            content: List.content
+          }
+        })
 
     },
 

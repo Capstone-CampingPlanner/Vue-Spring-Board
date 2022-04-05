@@ -5,6 +5,7 @@ import HelloWorld from "@/components/HelloWorld";   //메인 컴포넌트 호출
 import Create from '@/components/Create';
 import Read from "@/components/Read";
 import View from "@/components/View";
+import Update from "@/components/Update";
 
 
 
@@ -45,11 +46,11 @@ const routes = [
     component:View
   },
   {
-    path:'/view/:writerCode', //상세페이지 추가
-    name:"Params",
-    component:View,
-    props: true
-  },
+    path: '/update/:writer_code',
+    name: Update,
+    component: Update
+  }
+
 
 
 ]
