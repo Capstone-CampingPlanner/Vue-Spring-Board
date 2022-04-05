@@ -22,12 +22,6 @@ public class ApiController {
     @Autowired
     private WriterRepository writerRepository;
 
-//    @GetMapping("/board")
-//    public List board(){
-//        List posts = postRepository.findAll();
-//        return posts;
-//    }
-
     @PostMapping("signup")
     @JsonProperty("writer")
     public Writer addWriter(@RequestBody Writer writer) {

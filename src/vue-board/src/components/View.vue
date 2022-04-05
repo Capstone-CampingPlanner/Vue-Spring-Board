@@ -68,7 +68,7 @@ export default {
     },
 
     deleteData() {
-
+      
     },
     updateData() {
 

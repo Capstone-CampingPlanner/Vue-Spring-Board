@@ -17,11 +17,17 @@
       </tr>
       <router-link to="{name: 'View', params: { writer_code:item.writer_code }}"></router-link>
           </table>
-    <button @click="write">글쓰기</button>
 
+      <tr>
+          <div id="btnWrap">
+    <button @click="write" class="btn" style="float: right" >글쓰기</button>
+          </div>
+      </tr>
           <div class="searchWrap">
+
           <input type="text" v-model="keyword" @keyup.enter="fnSearch" /><a href="javascript:;" @click="fnSearch" class="btnSearch btn">검색</a>
-        </div>
+
+          </div>
 
     <li>
       <div id="divPaging">
@@ -95,6 +101,8 @@ export default {
 </script>
 
 <style>
+
+
 #divPaging {
   clear:both;
   margin:0 auto;
@@ -112,9 +120,15 @@ export default {
 .tbList th{border-top:1px solid #888;}
 .tbList th, .tbList td{border-bottom:1px solid #eee; padding:5px 0;}
 .tbList td.txt_left{text-align:left;}
+.btnWrap{text-align:center; margin:20px 0 0 0;}
+.btnWrap a{margin:0 10px;}
+.btnAdd {background:#43b984}
+.btnDelete{background:#f00;}
 
 .searchWrap{border:1px solid #888; border-radius:5px; text-align:center; padding:20px 0; margin-bottom:40px;}
 .searchWrap input{width:60%; height:36px; border-radius:3px; padding:0 10px; border:1px solid #888;}
 .searchWrap .btnSearch{display:inline-block; margin-left:10px;}
+
+
 
 </style>
