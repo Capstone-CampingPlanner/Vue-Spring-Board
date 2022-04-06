@@ -25,7 +25,7 @@
     </form>
   </div>
   <div class="btnWrap">
-    <button @click="main" class="btn" style="float: left;">취소</button>
+    <button @click="list" class="btn" style="float: left;">취소</button>
     <button @click="update" type="submit" class="btnAdd btn">수정</button>
 
   </div>
@@ -73,6 +73,12 @@ export default {
             })
 
       }
+    },
+
+    list(){
+      this.$router.push({
+        path: '/Read'
+      })
     }
   }
 }
