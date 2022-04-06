@@ -44,11 +44,10 @@ export default {
     }
   },
   created() {
-      this.writer_code = this.$route.query.writer_code;
-      this.title = this.$route.query.title;
-      this.content = this.$route.query.content;
+    this.writer_code = this.$route.query.writer_code;
+    this.title = this.$route.query.title;
+    this.content = this.$route.query.content;
   },
-
 
 
   methods: {
@@ -60,18 +59,20 @@ export default {
         content: this.content
       }
       console.log(data);
-      axios.put('http://localhost:8090/api/update/' + this.id, data)
-        .then((res) => {
-          console.log("수정되었습니다.", res.data)
-          alert("수정되었습니다.")
-          this.$router.push({
-            path: '/Read'
-          })
-        })
-        .catch((error) => {
-          console.log(error)
-        })
+      if (confirm("수정하시겠습니까?")) {
+        axios.put('http://localhost:8090/api/update/' + this.id, data)
+            .then((res) => {
+              console.log("수정되었습니다.", res.data)
+              alert("수정되었습니다.")
+              this.$router.push({
+                path: '/Read'
+              })
+            })
+            .catch((error) => {
+              console.log(error)
+            })
 
+      }
     }
   }
 }
