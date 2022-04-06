@@ -56,12 +56,11 @@ public class ApiController {
     }
 
     @PutMapping("update/{writer_code}")
-    public String updateList(@RequestBody Writer writer, @PathVariable("writer_code") String writer_code) {
-        writerRepository.findById(writer_code);
-        return writer_code;
+    public Writer updateList(@RequestBody Writer writer) {
+        writerRepository.save(writer);
+        return writer;
+
     }
-
-
 }
 
 

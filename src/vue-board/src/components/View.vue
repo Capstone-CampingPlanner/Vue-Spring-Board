@@ -33,6 +33,7 @@
 
 <!--      <button type="submit" @click="index !== undefined ? update() : write()" class="btnAdd btn">{{index !== undefined ? '수정' : '작성'}}</button>-->
   </div>
+
 </template>
 
 <script>
@@ -120,5 +121,9 @@ export default {
 
 .btn {
   margin: 10px;
+}
+.comment-create {
+  display: flex;
+  margin-bottom: 1em;
 }
 </style>
