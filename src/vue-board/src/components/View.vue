@@ -25,6 +25,22 @@
       </form>
     </div>
   </div>
+
+  <!--- 댓글 입력 폼 -->
+  <div class="dap_ins">
+<!--    <form action="reply_ok.php?idx=<?php echo $bno; ?>" method="post">-->
+<!--      <input type="text" name="dat_user" id="dat_user" class="dat_user" size="15" placeholder="아이디">-->
+<!--      <input type="password" name="dat_pw" id="dat_pw" class="dat_pw" size="15" placeholder="비밀번호">-->
+      <div style="margin-top:30px; ">
+        <textarea name="content" class="reply_content" id="re_content" ></textarea>
+        <button id="rep_bt" class="re_bt">댓글</button>
+      </div>
+
+  </div>
+  <div id="foot_box"></div>
+
+  <!--- 댓글 불러오기 끝 -->
+
     <div class="btnWrap">
       <button @click="list" class="btn" style="float: left;">목록</button>
 
@@ -122,8 +138,24 @@ export default {
 .btn {
   margin: 10px;
 }
-.comment-create {
-  display: flex;
-  margin-bottom: 1em;
+.dap_ins {
+  margin-top:50px;
 }
+.re_bt {
+  position: absolute;
+  width:100px;
+  height:56px;
+  font-size:16px;
+  margin-left: 10px;
+}
+
+#re_content {
+  width:700px;
+  height: 56px;
+}
+
+#foot_box {
+  height: 50px;
+}
+
 </style>
