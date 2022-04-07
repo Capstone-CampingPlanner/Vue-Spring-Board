@@ -1,5 +1,6 @@
 <template>
   <div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <H1>게시판 상세보기</H1>
     <div class="AddWrap">
       <form>
@@ -42,10 +43,10 @@
   <!--- 댓글 불러오기 끝 -->
 
     <div class="btnWrap">
-      <button @click="list" class="btn" style="float: left;">목록</button>
+      <button type="button" class="btn btn-outline-primary" @click="list" style="float: left;">목록</button>
 
-      <button @click="updateData(List)" class="btn" style="float: left;">수정</button>
-      <button @click="deleteData" class="btn" style="float: left;">삭제</button>
+      <button type="button" class="btn btn-outline-primary" @click="updateData(List)" style="float: right;">수정</button>
+      <button type="button" class="btn btn-outline-primary" @click="deleteData" style="float: right;">삭제</button>
 
 <!--      <button type="submit" @click="index !== undefined ? update() : write()" class="btnAdd btn">{{index !== undefined ? '수정' : '작성'}}</button>-->
   </div>

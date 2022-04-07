@@ -1,9 +1,9 @@
 <template>
   <div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <h1>게시글 작성</h1>
-    <button @click="list" style="float: left;">목록</button>
-    <!--    <button @click=" "  style="float: left;">이전글</button>-->
-    <!--    <button @click=" " style="float: left;">다음글</button>-->
+    <button type="button" class="btn btn-outline-primary" @click="list" style="float: left;" >목록</button>
+
     <form>
       <table class="tbAdd">
 
@@ -24,26 +24,17 @@
 
     </form>
   </div>
-  <div class="btnWrap">
-    <button @click="main" class="btn" style="float: left;">취소</button>
-    <button type="submit" @click="index !== undefined ? update() : write()" class="btnAdd btn">{{index !== undefined ? '수정' : '작성'}}</button>
 
-  </div>
-
+    <button type="button" class="btn btn-outline-primary" @click="main" style="float: left;">취소</button>
+    <button type="submit" @click="write" class="btnAdd btn">작성</button>
 
 </template>
 <script>
-import data from '@/data'
 import axios from "axios"
 export default {
   name: 'Create',
   data() {
-    const index = this.$route.params.contentId;
     return {
-      index: index,
-      // writer: index !== undefined ? data[index].writer : "",
-      // title: index !== undefined ? data[index].title : "",
-      // content: index !== undefined ? data[index].content : ""
       writer_code: '',
       title: '',
       content: ''
@@ -64,28 +55,16 @@ export default {
           .catch((ex) => {
             console.log("fail", ex)
           })
-      // this.data.push({
-      //   writer: this.writer,
-      //   title: this.title,
-      //   content: this.content,
-      // })
+
       this.$router.push({
         path: '/Read'
       })
 
-      if(!this.title) {       //제목 없다면 값 입력하라고 알려줌
+      if(!this.title) {
         alert("제목을 입력해 주세요");
-        this.$refs.title.focus();     //방식으로 선택자를 찾는다
+        this.$refs.title.focus();
         return;
       }
-    },
-    update() {
-      data[this.index].writer = this.writer
-      data[this.index].title = this.title
-      data[this.index].content = this.content
-      this.$router.push({
-        path: '/read'
-      })
     },
     list(){
       this.$router.push({

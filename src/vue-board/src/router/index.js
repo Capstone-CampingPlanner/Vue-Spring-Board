@@ -5,6 +5,7 @@ import Create from '@/components/Create';
 import Read from "@/components/Read";
 import View from "@/components/View";
 import Update from "@/components/Update";
+import ClubCreate from "@/components/ClubCreate";
 
 
 
@@ -41,9 +42,12 @@ const routes = [
     path: '/update/:writer_code',
     name: Update,
     component: Update
-  }
-
-
+  },
+  {
+  path:'/clubcreate',
+  name:ClubCreate,
+  component:ClubCreate
+}
 
 ]
 

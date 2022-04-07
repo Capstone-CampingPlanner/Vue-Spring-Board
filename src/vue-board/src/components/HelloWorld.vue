@@ -1,6 +1,5 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
     <p>게시글 작성</p>
     <button @click="read">글쓰기</button>
     <p>게시글 리스트</p>
@@ -12,10 +11,6 @@
 <script>
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
-  }
-  ,
   methods: {
     list() {
       this.$router.push({

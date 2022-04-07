@@ -1,6 +1,9 @@
 package com.example.demo.controller;
 
+import com.example.demo.data.ClubWriter;
 import com.example.demo.data.Writer;
+import com.example.demo.data.ClubWriter;
+import com.example.demo.repository.ClubWriterRepository;
 import com.example.demo.repository.PostRepository;
 import com.example.demo.repository.WriterRepository;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,6 +24,9 @@ public class ApiController {
     private PostRepository postRepository;
     @Autowired
     private WriterRepository writerRepository;
+    @Autowired
+    private ClubWriterRepository clubWriterRepository;
+
 
     @PostMapping("signup")
     @JsonProperty("writer")
@@ -61,6 +67,23 @@ public class ApiController {
         return writer;
 
     }
+
+
+    //
+//    @PostMapping("csignup")
+//    @JsonProperty("clubwriter")
+//    public ClubWriter addClubWriter(@RequestBody ClubWriter clubWriter) {
+//        System.out.println(clubwriter.getClubWriter_code());
+//        clubWriterRepository.save(clubwriter);
+//        return clubwriter;
+//    }
+
+    @GetMapping("/clubwriter")
+    public List<ClubWriter> getClubWriter(){
+        return clubWriterRepository.findAll();
+    }
+
+
 }
 
 
